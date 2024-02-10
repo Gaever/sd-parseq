@@ -72,6 +72,7 @@
     "recharts": "^2.7.2",
     "roarr": "^7.15.0",
     "seedrandom": "^3.0.5",
+    "serve": "^14.2.1",
     "simplify-ts": "^1.0.2",
     "stats-analysis": "^2.0.0",
     "ts-jest": "^29.1.1",
@@ -91,7 +92,8 @@
     "test-local": "npm run compile-grammar && react-scripts test --testPathIgnorePatterns=src/playwright --transformIgnorePatterns \"node_modules/(?!react-sparklines-typescript-v2)/\"",
     "eject": "react-scripts eject",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix --ext .js,.jsx ."
+    "lint:fix": "eslint --fix --ext .js,.jsx .",
+    "serve": "serve build -p $(grep PORT .env | cut -d '=' -f2) -L"
   },
   "eslintConfig": {
     "extends": [
