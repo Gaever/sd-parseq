@@ -372,6 +372,7 @@ export function DocManagerUI({ docId, onLoadContent, lastSaved }: MyProps) {
                     </DialogContentText>
                 </Grid>
                 <Grid xs={10}>
+
                     <TextField
                         style={{ width: '100%' }}
                         id="doc-export"
@@ -381,8 +382,9 @@ export function DocManagerUI({ docId, onLoadContent, lastSaved }: MyProps) {
                         InputProps={{ style: { fontFamily: 'Monospace', fontSize: '0.75em' } }}
                         placeholder="<Paste your Parseq doc here>"
                         value={dataToImport}
-                        onChange={(e) => setDataToImport(e.target.value)}
+                        onInput={(e) => setDataToImport(e.target.value)}
                     />
+
                 </Grid>
                 <Grid xs={2} sx={{ display: 'flex', justifyContent: 'right', alignItems: 'end' }}>
                     <Button size="small" disabled={_.isEmpty(dataToImport?.trim())} variant="contained" id="import" onClick={handleCloseLoadDialog}>⬇️ Import</Button>
@@ -555,7 +557,7 @@ export function DocManagerUI({ docId, onLoadContent, lastSaved }: MyProps) {
             </Stack>
             <Stack width={'100%'} direction='row' spacing={1} flex='flex-grow' flexGrow={4} alignItems={'flex-start'} justifyContent={'flex-end'}>
                 <Stack direction="row" spacing={1}>
-                    <Button size="small" variant="outlined" onClick={handleClickOpenLoadDialog} >⬇️&nbsp;Load...</Button>
+                    <Button id="btn-load" size="small" variant="outlined" onClick={handleClickOpenLoadDialog} >⬇️&nbsp;Load...</Button>
                     <Button size="small" variant="outlined" onClick={handleClickOpenNewDialog} >🆕&nbsp;New...</Button>
                     <Tooltip title="Explore your Parseq documents.">
                         <Button size="small" variant="outlined" href={'/browser?refDocId=' + activeDoc.docId} target='_blank' rel="noopener">🔎&nbsp;Browse...</Button>

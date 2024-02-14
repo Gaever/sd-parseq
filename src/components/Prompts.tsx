@@ -166,6 +166,8 @@ export function Prompts(props: PromptsProps) {
 
         return <TextField
             multiline
+            // test-id={`idx`}
+            data-testid={`prompt-${positive ? 'pos' : 'neg'}-idx-${index}`}
             minRows={2}
             maxRows={16}
             fullWidth={true}
@@ -178,7 +180,8 @@ export function Prompts(props: PromptsProps) {
                 sx: { background: hasUnsavedChanges ? theme.vars.palette.unsavedbg.main : '', },
                 endAdornment: hasUnsavedChanges ? '🖊️' : ''
             }}
-            onBlur={(e: any) => {          
+            onBlur={(e: any) => {      
+                console.log('ON BLUR')
                 commitChanges(unsavedPrompts);
             }}
             onKeyDown={(e: any) => {
@@ -195,6 +198,7 @@ export function Prompts(props: PromptsProps) {
                 }
             }}
             onChange={(e: any) => {
+                console.log('ON CHANGE')
                 if (isCommonPrompt
                     && unsavedPrompts.commonPromptPos === 'template'
                     && e.target.value.trim() !== ''
