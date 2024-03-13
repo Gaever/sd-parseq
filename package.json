@@ -93,7 +93,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "lint:fix": "eslint --fix --ext .js,.jsx .",
-    "serve": "serve build -p $(grep PORT .env | cut -d '=' -f2) -L"
+    "serve": "serve build -p 3001 -L"
   },
   "eslintConfig": {
     "extends": [
